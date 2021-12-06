@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:57:39 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/06 17:22:17 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/06 18:38:43 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(void)
 	test("hello %c, %i, %d, %s", 'a', 1, 4.1, "test");
 	test("hello %c, %i, %d, %s", 'a', 1, 4, "test");
 	test("hello %u, %i, %d", -3, -3, -3);
-	test("hello %%, %, %w");
-	// printf("hello %c, %i, %d, %s", 'a', 1, 4.1, "test");
+	test("hello %%, %w, %y");
+	test("hello %, %. %$ %)");
 	return (0);
 }

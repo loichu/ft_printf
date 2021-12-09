@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:55:42 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/06 18:38:00 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/09 19:58:02 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,17 @@
 int	print_arg(char c, va_list ap)
 {
 	if (c == 'c')
-		// char
 		return (ft_putchar(va_arg(ap, int)));
 	if (c == 's')
-		// str
 		return (ft_putstr(va_arg(ap, char *)));
 	if (c == 'p')
 		// ptr hex
 		return (ft_putchar(va_arg(ap, int)));
 	if (c == 'd')
-		// dec
 		return (ft_putnbr(va_arg(ap, int)));
 	if (c == 'i')
-		// int
 		return (ft_putnbr(va_arg(ap, int)));
 	if (c == 'u')
-		// udec
 		return (ft_putunbr(va_arg(ap, int)));
 	if (c == 'x')
 		// hex lc
@@ -39,10 +34,7 @@ int	print_arg(char c, va_list ap)
 		// hex uc
 		return (ft_putchar(va_arg(ap, int)));
 	if (c == '%')
-		// litteral %
 		return (ft_putchar('%'));
-	// ignore
-	// return (0);
 	return (ft_putchar(c));
 }
 

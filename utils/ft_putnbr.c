@@ -20,7 +20,7 @@ int	ft_minint()
 	return (11);
 }
 
-int	ft_putnbrrec(int n, int cnt)
+int	ft_putnbrrec(unsigned int n, int cnt)
 {
 	if (n > 0 || cnt == 0)
 	{
@@ -39,6 +39,11 @@ int	ft_putnbr(int n)
 	ft_putchar('-');
 	n *= -1;
 	return (ft_putnbrrec(n, 1));
+}
+
+int	ft_putunbr(unsigned int n)
+{
+	return (ft_putnbrrec(n, 0));
 }
 
 //int	main(void)

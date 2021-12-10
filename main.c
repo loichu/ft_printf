@@ -55,5 +55,6 @@ int	main(void)
 	test("%x, %X, %x, %X, %x", -2147483648, 2147483647, 0, -5, 23764);
 	test("%p", &test);
 	test("%p", NULL);
+	test("%p", 0);
 	return (0);
 }

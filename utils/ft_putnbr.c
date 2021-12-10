@@ -12,7 +12,7 @@
 
 #include "utils.h"
 
-// #include <stdio.h>
+//#include <stdio.h>
 
 int	ft_minint()
 {
@@ -20,89 +20,47 @@ int	ft_minint()
 	return (11);
 }
 
-void	ft_print(int n)
+int	ft_putnbrrec(int n, int cnt)
 {
-	char	dgt;
-
-	dgt = 48 + n;
-	write(1, &dgt, 1);
-}
-
-int	*ft_nbdigits(int n)
-{
-	static int	dgts[2];
-
-	if (n > 1000000000 || n < -1000000000)
+	if (n > 0 || cnt == 0)
 	{
-		dgts[0] = 10;
-		dgts[1] = 1000000000;
-		return (dgts);
+		cnt = ft_putnbrrec(n / 10, ++cnt);
+		ft_putchar(48 + n % 10);
 	}
-	dgts[0] = 0;
-	dgts[1] = 1;
-	while (1)
-	{
-		dgts[0]++;
-		if (!(n / (dgts[1] * 10)))
-			return (dgts);
-		dgts[1] *= 10;
-	}
+	return (cnt);
 }
-
 
 int	ft_putnbr(int n)
 {
-	int		*dgts;
-	int		tmp;
-
-	dgts = ft_nbdigits(n);
-	if (n == -2147483648)
+	if (n >= 0)
+		return (ft_putnbrrec(n, 0));
+	else if (n == -2147483648)
 		return (ft_minint());
-	if (n < 0)
-	{
-		write(1, "-", 1);
-		dgts[0]++;
-		n *= -1;
-	}
-	while (dgts[1])
-	{
-		tmp = n / dgts[1];
-		ft_print(tmp);
-		n -= tmp * dgts[1];
-		dgts[1] /= 10;
-	}
-	return (dgts[0]);
+	ft_putchar('-');
+	n *= -1;
+	return (ft_putnbrrec(n, 1));
 }
 
-/* int	main(void)
-{
-	int	test;
-
-	test = 1000;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = -2147483648;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = 2147483647;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = -1000;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = 0;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = 8;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = -4;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = 32;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-	test = -43532;
-	printf("%d: %d %d\n", test, ft_nbdigits(test)[0], ft_nbdigits(test)[1]);
-	printf(" %d\n\n", ft_putnbr(test));
-} */
+//int	main(void)
+//{
+//	int	test;
+//
+//	test = 1000;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = -2147483648;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = 2147483647;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = -1000;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = 0;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = 8;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = -4;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = 32;
+//	printf(" %d\n\n", ft_putnbr(test));
+//	test = -43532;
+//	printf(" %d\n\n", ft_putnbr(test));
+//}

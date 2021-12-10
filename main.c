@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:57:39 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/06 18:38:43 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:18:08 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,8 @@ int	main(void)
 	test("hello %u, %i, %d", -3, -3, -3);
 	test("hello %%, %w, %y");
 	test("hello %, %. %$ %)");
+	test("%x, %X, %x, %X, %x", -2147483648, 2147483647, 0, -5, 23764);
+	test("%p", &test);
+	test("%p", NULL);
 	return (0);
 }

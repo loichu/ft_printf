@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 02:56:27 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/06 17:28:35 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/10 17:27:55 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int	ft_putstr(char *s)
 	size_t	i;
 
 	if (!s)
-		return (0);
+		s = "(null)";
 	i = -1;
 	while (s[++i])
 		ft_putchar(s[i]);

@@ -14,49 +14,14 @@
 
 #include <stdio.h>
 
-char	ft_gethex(int n)
+char	ft_gethex(int n, char uc)
 {
-	char	hex[16];
+	char	*hex;
 
-	hex[0] = '0';
-	hex[1] = '1';
-	hex[2] = '2';
-	hex[3] = '3';
-	hex[4] = '4';
-	hex[5] = '5';
-	hex[6] = '6';
-	hex[7] = '7';
-	hex[8] = '8';
-	hex[9] = '9';
-	hex[10] = 'A';
-	hex[11] = 'B';
-	hex[12] = 'C';
-	hex[13] = 'D';
-	hex[14] = 'E';
-	hex[15] = 'F';
-	return (hex[n]);
-}
-
-char	ft_gethexlc(int n)
-{
-	char	hex[16];
-
-	hex[0] = '0';
-	hex[1] = '1';
-	hex[2] = '2';
-	hex[3] = '3';
-	hex[4] = '4';
-	hex[5] = '5';
-	hex[6] = '6';
-	hex[7] = '7';
-	hex[8] = '8';
-	hex[9] = '9';
-	hex[10] = 'a';
-	hex[11] = 'b';
-	hex[12] = 'c';
-	hex[13] = 'd';
-	hex[14] = 'e';
-	hex[15] = 'f';
+	if (uc)
+		hex = "0123456789ABCDEF";
+	else
+		hex = "0123456789abcdef";
 	return (hex[n]);
 }
 
@@ -65,10 +30,7 @@ int	ft_rechex(unsigned long int n, unsigned int cnt, char uc)
 	if (n > 0 || cnt == 0)
 	{
 		cnt = ft_rechex(n / 16, ++cnt, uc);
-		if (uc)
-			ft_putchar(ft_gethex(n % 16));
-		else
-			ft_putchar(ft_gethexlc(n % 16));
+		ft_putchar(ft_gethex(n % 16, uc));
 	}
 	return cnt;
 }

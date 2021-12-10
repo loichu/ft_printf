@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 20:06:01 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/09 20:41:48 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/10 16:32:02 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,39 +37,44 @@ char	ft_gethex(int n)
 	return (hex[n]);
 }
 
-int	ft_puthex(int n)
+int	ft_rechex(unsigned int n, unsigned int cnt)
 {
-	int	cnt;
-
-	cnt++;
 	if (n > 0 || cnt == 0)
-		ft_puthex(n / 16);
-	ft_putchar(ft_gethex(n % 16));
+	{
+		cnt = ft_rechex(n / 16, ++cnt);
+		ft_putchar(ft_gethex(n % 16));
+	}
 	return cnt;
+}
+
+int	ft_puthex(unsigned int n)
+{
+	return (ft_rechex(n, 0));
+}
+
+void	test(int n)
+{
+	static int	testnb;
+
+	printf("TEST #%d: %d\n", testnb, n);
+	printf("printf: %X\n", n);
+	testnb++;
+	printf("\nreturn: %d\n\n", ft_puthex(n));
 }
 
 int	main(void)
 {
-	int	test;
-
-	test = 16;
-	printf("%d: %d\n\n", test, ft_puthex(test));
-	test = 56;
-	printf("%d: %d\n\n", test, ft_puthex(test));
-	test = -2147483648;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
-	test = 2147483647;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
-	test = -1000;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
-	test = 0;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
-	test = 8;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
-	test = -4;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
-	test = 32;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
-	test = -43532;
-	printf("%d:  %d\n\n", test, ft_puthex(test));
+	test(5);
+	test(-5);
+	test(15);
+	test(16);
+	test(56);
+	test(-2147483648);
+	test(2147483647);
+	test(-1000);
+	test(0);
+	test(8);
+	test(-4);
+	test(32);
+	test(-43532);
 }

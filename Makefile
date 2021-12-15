@@ -6,7 +6,8 @@ CFLAGS = -Wall -Wextra -Werror -I.
 
 SRCS = ft_printf.c
 
-UTILS_SRCS = utils/ft_putchar.c utils/ft_putstr.c utils/ft_putnbr.c utils/ft_puthex.c
+UTILS_SRCS = utils/ft_putchar.c utils/ft_putstr.c utils/ft_putnbr.c \
+			 utils/ft_puthex.c
 
 OBJS = $(SRCS:.c=.o)
 

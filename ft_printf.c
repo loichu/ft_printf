@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/23 19:55:42 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/10 17:06:40 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:03:22 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int	print_arg(char c, va_list ap)
 	if (c == 's')
 		return (ft_putstr(va_arg(ap, char *)));
 	if (c == 'p')
-		// ptr hex
 		return (ft_putptr(va_arg(ap, void *)));
 	if (c == 'd')
 		return (ft_putnbr(va_arg(ap, int)));

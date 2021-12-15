@@ -6,15 +6,13 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/22 03:04:05 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/06 17:12:57 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:04:50 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils.h"
 
-//#include <stdio.h>
-
-int	ft_minint()
+int	ft_minint(void)
 {
 	write(1, "-2147483648", 11);
 	return (11);

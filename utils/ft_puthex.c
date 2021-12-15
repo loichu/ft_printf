@@ -6,7 +6,7 @@
 /*   By: lhumbert <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/09 20:06:01 by lhumbert          #+#    #+#             */
-/*   Updated: 2021/12/10 17:17:45 by lhumbert         ###   ########.fr       */
+/*   Updated: 2021/12/15 14:04:07 by lhumbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int	ft_rechex(unsigned long int n, unsigned int cnt, char uc)
 		cnt = ft_rechex(n / 16, ++cnt, uc);
 		ft_putchar(ft_gethex(n % 16, uc));
 	}
-	return cnt;
+	return (cnt);
 }
 
 int	ft_puthex(unsigned int n, char uc)
